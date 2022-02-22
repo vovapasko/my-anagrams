@@ -1,6 +1,6 @@
 from unittest import TestCase
-from src import get_anagrams
-from src import generate_key
+from core.anagrams import get_anagrams
+from core.anagrams import generate_key
 
 
 class AnagramsTestCase(TestCase):

@@ -1,6 +1,8 @@
 from os import path
-from src.core import get_anagrams
-from src.file_reader import file_reader
+from pathlib import Path
+
+from core.anagrams import get_anagrams
+from core.file_reader import file_reader
 
 
 def print_anagrams(words: dict):
@@ -19,9 +21,10 @@ def main():
 
 
 def set_default_filename():
+    ROOT_DIR = Path(__file__).parent
     filename = "words.txt"
     assets_folder = "assets"
-    file_path = path.join(path.pardir, assets_folder, filename)
+    file_path = path.join(ROOT_DIR, assets_folder, filename)
     return file_path
 
 
