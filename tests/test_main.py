@@ -1,16 +1,17 @@
 from unittest import TestCase
 from src import get_anagrams
+from src import generate_key
 
 
 class AnagramsTestCase(TestCase):
     test_filename = "assets/words.txt"
 
     def test_get_anagrams(self):
-        actual = get_anagrams(self.test_filename)
+        actual = get_anagrams(["Race", "Care", "Acre", "Bee", "Tree", "Mine"])
         expected = {
-            str({'r', 'a', 'c', 'e'}): ["Race", "care", "acre"],
-            str({'b', 'e', 'e'}): ["bee"],
-            str({'t', 'r', 'e'}): ["tree"],
-            str({'m', 'i', 'n', 'e'}): ["mine"],
+            generate_key("race"): ["Race", "Care", "Acre"],
+            generate_key("bee"): ["Bee"],
+            generate_key("tree"): ["Tree"],
+            generate_key("mine"): ["Mine"],
         }
         self.assertEqual(actual, expected)
